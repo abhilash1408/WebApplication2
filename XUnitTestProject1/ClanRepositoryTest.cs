@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 using Moq;
 using WebApplication2.Models;
@@ -9,7 +10,7 @@ using Xunit;
 
 namespace XUnitTestProject1
 {
-    class ClanRepositoryTest
+    public class ClanRepositoryTest
     {
         protected ClanRepository RepositoryUnderTest { get; }
         protected Clan[] Clans { get; }
