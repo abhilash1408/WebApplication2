@@ -13,10 +13,10 @@ namespace XUnitTestProject1
     public class ClansControllerTest
     {
         protected ClansController ControllerUnderTest { get; }
-        protected Mock<IClanService> ClanServiceMock { get; }
+        protected Mock<IClanService<Clan>> ClanServiceMock { get; }
         public ClansControllerTest()
         {
-            ClanServiceMock = new Mock<IClanService>(); // IClanService mock
+            ClanServiceMock = new Mock<IClanService<Clan>>(); // IClanService mock
             ControllerUnderTest = new ClansController(ClanServiceMock.Object);
         }
 

@@ -11,9 +11,9 @@ namespace WebApplication2.Controllers
     [Route("v1/[controller]")]
     public class ClansController : Controller
     {
-        private readonly IClanService _clanService;
+        private readonly IClanService<Clan> _clanService;
 
-        public ClansController(IClanService clanService) // Injection of IClanService
+        public ClansController(IClanService<Clan> clanService) // Injection of IClanService
         {
             _clanService = clanService ?? throw new ArgumentNullException(nameof(clanService)); // Guard
         }

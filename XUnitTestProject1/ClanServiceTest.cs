@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using WebApplication2.Models;
+using WebApplication2.Repositories;
 using WebApplication2.Services;
 using Xunit;
 
@@ -14,11 +15,11 @@ namespace XUnitTestProject1
     public class ClanServiceTest
     {
         protected ClanService ServiceUnderTest { get; }
-        protected Mock<IClanRepository> ClanRepositoryMock { get; }
+        protected Mock<IClanRepository<Clan>> ClanRepositoryMock { get; }
 
         public ClanServiceTest()
         {
-            ClanRepositoryMock = new Mock<IClanRepository>();
+            ClanRepositoryMock = new Mock<IClanRepository<Clan>>();
             ServiceUnderTest = new ClanService(ClanRepositoryMock.Object);
         }
 

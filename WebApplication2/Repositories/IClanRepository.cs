@@ -4,13 +4,12 @@ using System.Linq;
 using System.Threading.Tasks;
 using WebApplication2.Models;
 
-namespace WebApplication2.Services
+namespace WebApplication2.Repositories
 {
-    public interface IClanService<T>
+    public interface IClanRepository<T>
     {
         Task<IEnumerable<T>> ReadAllAsync();
         Task<T> ReadOneAsync(string clanName);
-        Task<bool> IsClanExistsAsync(string clanName);
         Task<T> CreateAsync(T clan);
         Task<T> UpdateAsync(T clan);
         Task<T> DeleteAsync(string clanName);
