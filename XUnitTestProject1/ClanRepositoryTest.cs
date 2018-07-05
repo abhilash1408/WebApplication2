@@ -32,7 +32,7 @@ namespace XUnitTestProject1
             {
                 // Act
                 var result = await RepositoryUnderTest.ReadAllAsync();
-
+                Console.WriteLine("Repo Test Running");
                 // Assert
                 Assert.Collection(result,
                     clan => Assert.Same(Clans[0], clan),
