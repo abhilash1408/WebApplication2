@@ -11,6 +11,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using WebApplication2.Models;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using WebApplication2.Services;
+using WebApplication2.Repositories;
 
 namespace WebApplication2
 {
@@ -34,7 +37,12 @@ namespace WebApplication2
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
+            services.TryAddSingleton<IClanService<Clan>, ClanService>();
+            services.TryAddSingleton<IClanRepository<Clan>, ClanRepository>();
+            services.TryAddSingleton<IEnumerable<Clan>>(new Clan[]{
+                new Clan { Name = "Iga" },
+                new Clan { Name = "Kōga" },
+            });
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
             services.AddDbContext<WebApplication2Context>(options =>
